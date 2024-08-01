@@ -1,0 +1,5 @@
+config_path=C:\\path\\to\\your\\config.txt
+from_email=your_email@gmail.com
+to_email=recipient_email@gmail.com
+app_password=your_app_password
+directory_path=C:\\path\\to\\your\\directory
