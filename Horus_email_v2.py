@@ -1,10 +1,11 @@
+
 #-------------------------------------------------------------------------------
 # Name:        Horus e-mail (for HorusGUI in Windows)
 # Purpose:
 #
 # Author:      9A4AM
 #
-# Created:     01.08.2024 Rev 13.12.2024
+# Created:     01.08.2024 Rev 02.01.2025
 # Copyright:   (c) 9A4AM 2024
 # Licence:     <your licence>
 #-------------------------------------------------------------------------------
@@ -82,7 +83,10 @@ def send_email(new_files, email_config):
         msg['To'] = email_config['to_email']
         msg['Subject'] = "New HORUS sonde flight detected in area"
 
-        body = f"New log files found for call:\n\n" + "\n".join(log_info)
+        body = (
+            f"New log files found for call:\n\n{log_info[0]}\n\n"
+            f"https://amateur.sondehub.org/#!mt=Mapnik&mz=5&qm=1h&mc=45.99696,17.01782&f={log_info[0]}"
+        )
         msg.attach(MIMEText(body, 'plain'))
 
         # Set server
