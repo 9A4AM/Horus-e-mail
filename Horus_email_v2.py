@@ -84,8 +84,12 @@ def send_email(new_files, email_config):
         msg['Subject'] = "New HORUS sonde flight detected in area"
 
         body = (
-            f"New log files found for call:\n\n{log_info[0]}\n\n"
-            f"https://amateur.sondehub.org/#!mt=Mapnik&mz=5&qm=1h&mc=45.99696,17.01782&f={log_info[0]}"
+            f"New log files found for call:\n\n" +
+            "\n\n".join(
+            f"{info}: https://amateur.sondehub.org/#!mt=Mapnik&mz=6&qm=1h&mc=45.99696,17.01782&f={info}\n"
+            for info in log_info
+            ) +
+            "\n"
         )
         msg.attach(MIMEText(body, 'plain'))
 
